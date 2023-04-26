@@ -53,3 +53,132 @@ echo "<br>";
 echo $xox[1][2];
 
 // ## Variable-naming rules
+
+// # Operators
+echo "<br>";
+echo 6 + 2;
+
+// ## Arithmetic operators
+
+// ## Assignment operators
+$count += 1;
+echo "<br>";
+echo $count;
+
+// ## Comparison operators
+
+// ## Logical operators
+$hour = 13;
+if ($hour > 12 && $hour < 14)
+    echo '<br>Eat Lunch~';
+
+// # Variable Assignment
+$x = 1;
+$y = 2;
+$x += 10;
+$y -= 10;
+
+// ## Variable incrementing and decrementing
+++$x;
+--$y;
+
+// ## String concatenation
+echo "<br>";
+$msgs = 5;
+echo "You have " . $msgs . " message.";
+
+// ## String types
+$info = 'Preface variables with a $ like this: $variable';
+echo "<br>";
+echo $info;
+
+echo "<br>";
+echo "This week $count people have viewed your profile.";
+
+// ## Escaping characters
+$text = 'My seplling\'s still atroshus';
+
+$text = "She wrote upon it, \"Return to sender\".";
+
+$heading = "Date\tName\tPayment";
+
+// # Multiline Commands
+$author = "Seteve Ballmer";
+
+echo "<br>";
+echo "Developers, developers, developers, developers, developers,
+developers, developers, developers, developers!
+
+- $author.";
+
+$author = "Bill Gates";
+$text = "Measuring programming progress by lines of code is like
+Measuring aircraft building progress by weight.
+
+- $author.";
+
+$author = "Brian W. Kernighan";
+
+echo "<br>";
+echo <<<_END
+Debugging is twice as hard as writing the code in the first place.
+Therefore, if you write the code as cleverly as possible, you are,
+by definition, not smart enough to debug it.
+
+- $author
+_END;
+
+$author = "Scott Adams";
+
+$out = <<<_END
+Normal people believe that if it ain't broke, don't fix it.
+Engineers believe that if it ain't broke, it doesn't have enough
+features yet.
+
+- $author.
+_END;
+
+echo "<br>";
+echo $out;
+
+// # Variable Typing
+$number = 12345 * 67890;
+echo "<br>";
+echo substr($number, 3, 1);
+
+$pi = "3.1415927";
+$radius = 5;
+echo "<br>";
+echo $pi * ($radius * $radius);
+
+// # Constants
+define("ROOT_LOCATION", "/usr/local/www/");
+
+$directory = ROOT_LOCATION;
+
+// # Predefined Constants
+echo "<br>";
+echo __LINE__;
+echo "<br>";
+echo __FILE__;
+echo "<br>";
+echo __DIR__;
+echo "<br>";
+echo __FUNCTION__;
+echo "<br>";
+echo __CLASS__;
+echo "<br>";
+echo __METHOD__;
+echo "<br>";
+echo __NAMESPACE__;
+
+// # The Difference Between the echo and print Commands
+function longdate($timestamp)
+{
+    return date("l F jS Y", $timestamp);
+}
+
+echo "<br>";
+echo longdate(time());
+echo "<br>";
+echo longdate(time() - 17 * 24 * 60 * 60);
