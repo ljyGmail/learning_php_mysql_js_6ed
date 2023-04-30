@@ -173,12 +173,61 @@ echo "<br>";
 echo __NAMESPACE__;
 
 // # The Difference Between the echo and print Commands
-function longdate($timestamp)
+// function longdate($timestamp)
+// {
+//     return date("l F jS Y", $timestamp);
+// }
+
+// echo "<br>";
+// echo longdate(time());
+// echo "<br>";
+// echo longdate(time() - 17 * 24 * 60 * 60);
+
+// # Variable Scope
+
+// ## Local variables
+// function longdate($timestamp)
+// {
+//     $temp = date("l F jS Y", $timestamp);
+//     return "Ths date is $temp";
+// }
+
+// echo longdate(time());
+
+// $temp = "The date is ";
+// echo $temp . longdate(time());
+
+// function longdate($timestamp)
+// {
+//     return $temp . date("l F jS Y", $timestamp); // Undefined variable $temp
+// }
+
+$temp = "The date is ";
+echo longdate($temp, time());
+
+function longdate($text, $timestamp)
 {
-    return date("l F jS Y", $timestamp);
+    return $text . date("l F jS Y", $timestamp);
+}
+
+// Global variables
+global $is_logged_in;
+
+// Static variables
+function test()
+{
+    static $count = 0;
+    echo $count;
+    $count++;
 }
 
 echo "<br>";
-echo longdate(time());
+test();
 echo "<br>";
-echo longdate(time() - 17 * 24 * 60 * 60);
+test();
+
+static $int = 0; // Allowed
+static $int = 1 + 2; // Correct (as of PHP 5.6)
+// static $int = sqrt(144); // Disallowed
+
+// Superglobal variables
