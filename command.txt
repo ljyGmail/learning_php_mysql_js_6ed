@@ -1,0 +1,6 @@
+# go to path
+PhpWorkspace/learning_php_mysql_js_6ed
+# execute following command to go into docker
+docker exec -ti mysql-db bash
+# login to mysql
+mysql -uuser -p pass
