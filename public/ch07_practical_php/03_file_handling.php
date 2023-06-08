@@ -69,4 +69,25 @@ fseek($fh, 0, SEEK_END);
 fwrite($fh, "\n$text") or die("Could not write to file");
 fclose($fh);
 
-echo "File 'testfile.txt' successfuly updated";
+echo "File 'testfile.txt' successfully updated<br>";
+
+// # Locking Files for Multiple Accesses
+$fh = fopen("testfile.txt", 'r+') or die("Failed to open file");
+$text = fgets($fh);
+
+if (flock($fh, LOCK_EX))
+{
+    fseek($fh, 0, SEEK_END);
+    fwrite($fh, "$text") or die("Could not write to file");
+    flock($fh, LOCK_UN);
+}
+
+fclose($fh);
+echo "File 'testfile.txt' successfully updated<br>";
+
+// # Reading an Entire File
+echo "<pre>";
+echo file_get_contents("testfile.txt");
+echo "</pre>";
+
+// echo file_get_contents("http://oreilly.com"); // Request O'Reilly home page and display the page
