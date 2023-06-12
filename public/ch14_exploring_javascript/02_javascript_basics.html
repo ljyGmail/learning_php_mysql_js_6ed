@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScirpt Basic</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // # Using Comments
+
+      // This is a comment
+
+      /* THis is a section
+  of multiline comments
+  that will not be
+  interpreted */
+
+      // # Semicolons
+      let x = 2,
+        y = 3,
+        z = 4;
+
+      x += 10;
+
+      x += 10;
+      y -= 5;
+      z = 0;
+
+      // # Variables
+
+      // ## String Variables
+      let greeting = "Hello there";
+      let warning = "Be careful";
+
+      greeting = '"Hello there" is a greeting';
+      warning = "'Be careful' is a warning";
+
+      // ## Numeric Variables
+      let count = 42;
+      let temperature = 98.4;
+
+      // ## Arrays
+      let toys = ["bat", "ball", "whistle", "puzzle", "doll"];
+
+      let face = [
+        ["R", "G", "Y"],
+        ["W", "R", "O"],
+        ["Y", "W", "G"],
+      ];
+
+      console.log(face[1][2]);
+
+      // # Operators
+
+      // ## Arithmetic Operators
+      // ## Assignment Operators
+      // ## Comparison Operators
+      // ## Logical Operators
+      // ## Incrementing, Decrementing, and Shorthand Assignment
+      // ## String Concatenation
+      // ## Escape Characters
+
+      // # Variable Typing
+      let n = "838102050"; // Set 'n' to a string
+      console.log(`n = ${n}, and is a ${typeof n}`);
+
+      n = 12345 * 67890; // Set 'n' to a number
+      console.log(`n = ${n}, and is a ${typeof n}`);
+
+      n += " plus some text"; // Change 'n' from a number to a string
+      console.log(`n = ${n}, and is a ${typeof n}`);
+
+      n = "123";
+      n *= 1; // Convert 'n' into a number
+
+      n = 123;
+      n += ""; // Convert 'n' into a string
+
+      n = "123";
+      n = parseInt(n); // Convert 'n' into an integer number
+      n = parseFloat(n); // Convert 'n' into an floating point number
+
+      n = 123;
+      n = n.toString(); // Convert 'n' into a string
+
+      // # Functions
+      function product(a, b) {
+        return a * b;
+      }
+
+      // # Global Variables
+      /*
+  a = 123; // Global scope
+  var b = 456; // Global scope
+  if (a == 123) var c = 789; // Global scope
+  */
+
+      // # Local Variables
+      function test() {
+        a = 123; // Global scope
+        var b = 456; // Local scope
+        if (a == 123) var c = 789; // Local scope
+      }
+
+      test();
+
+      if (typeof a != "undefined") document.write(`a = ${a}<br>`);
+      if (typeof b != "undefined") document.write(`b = ${b}<br>`);
+      if (typeof c != "undefined") document.write(`c = ${c}<br>`);
+
+      // ## Using let and const
+      /*
+      var hello = "Hello there";
+      var counter = 1;
+
+      if (counter > 0) {
+        var hello = "How are you?";
+      }
+
+      document.write(hello);
+      */
+      /*
+      let hello = "Hello there";
+      let counter = 1;
+
+      if (counter > 0) {
+        let hello = "How are you?";
+      }
+      document.write(hello);
+      */
+
+      /* ReferenceError
+      let counter = 1;
+      if (counter > 0) {
+        let hello = "How are you?";
+      }
+      document.write(hello);
+      */
+
+      /*
+      // Uncaught TypeError: Assignment to constant variable
+      const hello = "Hello there";
+      let counter = 1;
+      if (counter > 0) {
+        hello = "How are you?";
+      }
+      document.write(hello);
+      */
+    </script>
+  </body>
+</html>
