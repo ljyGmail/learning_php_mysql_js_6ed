@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model</title>
+  </head>
+  <body>
+    <a id="mylink" href="http://mysite.com">Click me</a><br />
+    <script>
+      // # Another Use for the $ Symbol
+      function $(id) {
+        return document.getElementById(id);
+      }
+      // url = document.links.mylink.href;
+      // url = mylink.href; // a short form
+      url = $("mylink").href;
+      document.write("The URL is " + url + "<br>");
+
+      // # Using the DOM
+      url = document.links[0].href;
+      console.log(`url: ${url}`);
+
+      numlinks = document.links.length;
+      console.log(`numlinks: ${numlinks}`);
+
+      for (j = 0; j < document.links.length; j++)
+        document.write(document.links[j].href + "<br>");
+
+      console.log(`history size: ${history.length}`);
+
+      // history.go(-3);
+      // history.back();
+      // history.forward();
+
+      // document.location.href = "http://google.com";
+
+      // # About document.write
+      // ## Using console.log
+      // ## Using alert
+      // ## Writing into Elements
+      // ## Using document.write
+    </script>
+  </body>
+</html>
