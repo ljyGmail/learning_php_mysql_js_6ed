@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Objects</title>
+    <script>
+      // # Defining a Class
+      // Declaring the User class and its method
+      /*
+      function User(forename, username, password) {
+        this.forename = forename;
+        this.username = username;
+        this.password = password;
+
+        this.showUser = function () {
+          document.write("Forename: " + this.forename + "<br>");
+          document.write("Username: " + this.username + "<br>");
+          document.write("Password: " + this.password + "<br>");
+        };
+      }
+        */
+
+      // Separately defining a class and method
+      /*
+      function User(forename, username, password) {
+        this.forename = forename;
+        this.username = username;
+        this.password = password;
+        this.showUser = showUser;
+      }
+
+      function showUser() {
+        document.write("Forename: " + this.forename + "<br>");
+        document.write("Username: " + this.username + "<br>");
+        document.write("Password: " + this.password + "<br>");
+      }
+
+      // # Creating an Object
+      details = new User("Wolfgang", "w.a.mozart", "composer");
+
+      // create an empty object and populate it later
+      details = new User();
+      details.forename = "Wolfgang";
+      details.username = "w.a.mozart";
+      details.password = "composer";
+      // add new propeties
+      details.greeting = "Hello";
+      document.write(details.greeting + "<br>");
+
+      // # Accessing Objects
+      // name = details.forename;
+      // if (details.username == "Admin") loginAsAdmin();
+      details.showUser();
+      */
+
+      // # The prototype Keyword
+      // Declaring a class using the prototype keyword for a method
+      function User(forename, username, password) {
+        this.forename = forename;
+        this.username = username;
+        this.password = password;
+
+        User.prototype.showUser = function () {
+          document.write("Forename: " + this.forename + "<br>");
+          document.write("Username: " + this.username + "<br>");
+          document.write("Password: " + this.password + "<br>");
+        };
+      }
+
+      details = new User();
+      User.prototype.greeting = "Hello";
+      document.write(details.greeting);
+      details.showUser();
+      document.write("<br>");
+
+      User.prototype.showUser = function () {
+        document.write(
+          "Name " +
+            this.forename +
+            " User " +
+            this.username +
+            " Pass " +
+            this.password
+        );
+      };
+      details.showUser();
+      document.write("<br>");
+
+      // ## Static methods and properties
+      User.prototype.greeting = "Hello";
+      document.write(User.prototype.greeting);
+      document.write("<br>");
+
+      // ## Extending JavaScript objects
+      String.prototype.nbsp = function () {
+        return this.replace(/ /g, "&nbsp;");
+      };
+
+      document.write("The quick brown fox".nbsp());
+      document.write("<br>");
+
+      String.prototype.trim = function () {
+        return this.replace(/^\s+|\s+$/g, "");
+      };
+
+      document.write("   Please trim me     ".trim());
+      document.write("<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

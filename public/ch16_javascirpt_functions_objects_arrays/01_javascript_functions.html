@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Functions</title>
+    <script>
+      // # Defining a Function
+      /*
+      function function_name([parameter, [, ...]])
+      {
+        statements
+      }
+      */
+
+      // ## The arguments array
+      // Defining a function
+      /*
+      displayItems("Dog", "Cat", "Pony", "Hamster", "Tortoise");
+
+      function displayItems(v1, v2, v3, v4, v5) {
+        document.write(v1 + "<br>");
+        document.write(v2 + "<br>");
+        document.write(v3 + "<br>");
+        document.write(v4 + "<br>");
+        document.write(v5 + "<br>");
+      }
+      */
+      let c = "Car";
+      displayItems("Bananas", 32.3, c);
+
+      function displayItems() {
+        for (j = 0; j < displayItems.arguments.length; ++j)
+          document.write(displayItems.arguments[j] + "<br>");
+      }
+
+      // # Returning a Value
+      /*
+      document.write(fixNames("the", "DALLAS", "CowBoys"));
+
+      function fixNames() {
+        var s = "";
+        for (j = 0; j < fixNames.arguments.length; ++j) {
+          console.log(j);
+          s +=
+            fixNames.arguments[j].charAt(0).toUpperCase() +
+            fixNames.arguments[j].substr(1).toLowerCase() +
+            " ";
+        }
+        return s.substr(0, s.length - 1);
+      }
+      */
+
+      // # Returning an Array
+      words = fixNames("the", "DALLAS", "CowBoys");
+
+      for (j = 0; j < words.length; ++j) document.write(`${words[j]}<br>`);
+
+      document.write(`${words[0]} ${words[2]}`);
+
+      function fixNames() {
+        var s = new Array();
+
+        for (j = 0; j < fixNames.arguments.length; ++j) {
+          s[j] =
+            fixNames.arguments[j].charAt(0).toUpperCase() +
+            fixNames.arguments[j].substr(1).toLowerCase();
+        }
+
+        return s;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

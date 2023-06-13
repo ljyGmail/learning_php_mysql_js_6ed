@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Arrays</title>
+    <script>
+      // # Numeric Arrays
+      arrayname = new Array();
+      arrayname = []; // shorthand form
+
+      // ## Assigning element values
+      // arrayname.push("Element 1");
+      // arrayname.push("Element 2");
+      arrayname[0] = "Element 1";
+      arrayname[1] = "Element 2";
+
+      document.write(`arrayname.length: ${arrayname.length}<br>`);
+
+      // Creating, building, and printing an array
+      numbers = [];
+      numbers.push("One");
+      numbers.push("Two");
+      numbers.push("Three");
+
+      for (j = 0; j < numbers.length; ++j)
+        document.write(`Element ${j} = ${numbers[j]}<br>`);
+
+      // ## Assignment using the Array keyword
+      numbers = Array("One", "Two", "Three");
+
+      // # Associative Arrays
+
+      // Creating and displaying an associative array
+      balls = {
+        golf: "Golf ball, 6",
+        tennis: "Tennis balls, 3",
+        soccer: "Soccer ball, 1",
+        ping: "Ping Pong balls, 1 doz",
+      };
+
+      for (ball in balls) document.write(`${ball} = ${balls[ball]}<br>`);
+
+      // get a specific element of an associative array
+      document.write(balls["soccer"] + "<br>");
+
+      // # Multidimensional Arrays
+      checkerboard = Array(
+        Array(" ", "o", " ", "o", " ", "o", " ", "o"),
+        Array("o", " ", "o", " ", "o", " ", "o", " "),
+        Array(" ", "o", " ", "o", " ", "o", " ", "o"),
+        Array(" ", " ", " ", " ", " ", " ", " ", " "),
+        Array(" ", " ", " ", " ", " ", " ", " ", " "),
+        Array("O", " ", "O", " ", "O", " ", "O", " "),
+        Array(" ", "O", " ", "O", " ", "O", " ", "O"),
+        Array("O", " ", "O", " ", "O", " ", "O", " ")
+      );
+      document.write("<pre>");
+
+      for (j = 0; j < 8; ++j) {
+        for (k = 0; k < 8; ++k) {
+          document.write(checkerboard[j][k] + " ");
+        }
+        document.write("<br>");
+      }
+      document.write("</pre>");
+
+      // directly access any element within this array
+      document.write(checkerboard[7][2] + "<br>");
+
+      // # Using Array Methods
+      // ## some
+      function isBiggerThan10(element, index, array) {
+        return element > 10;
+      }
+
+      document.write([2, 5, 8, 1, 4].some(isBiggerThan10) + "<br>"); // result will be false
+      document.write([12, 5, 8, 1, 4].some(isBiggerThan10) + "<br>"); // result will be true
+
+      // ## indexOf
+      animals = ["cat", "dog", "cow", "horse", "elephant"];
+      offset = animals.indexOf("cow");
+      document.write(`offset: ${offset}<br>`);
+
+      // ## concat
+      fruit = ["Banana", "Grape"];
+      veg = ["Carrot", "Cabbage"];
+
+      document.write(fruit.concat(veg) + "<br>");
+
+      pets = ["Cat", "Dog", "Fish"];
+      more_pets = pets.concat("Rabbit", "Hamster");
+
+      document.write(more_pets + "<br>");
+
+      // ## forEach
+      pets = ["Cat", "Dog", "Rabbit", "Hamster"];
+      pets.forEach(output);
+
+      function output(element, index, array) {
+        document.write(
+          `Element at index ${index} has the value ${element}<br>`
+        );
+      }
+
+      // ## join
+      document.write(pets.join() + "<br>");
+      document.write(pets.join(" ") + "<br>");
+      document.write(pets.join(" : ") + "<br>");
+
+      // ## push and pop
+      sports = ["Football", "Tennis", "Baseball"];
+      document.write(`Start = ${sports}<br>`);
+
+      sports.push("Hockey");
+      document.write(`After Push = ${sports}<br>`);
+
+      removed = sports.pop();
+      document.write(`After Pop = ${sports}<br>`);
+      document.write(`Removed = ${removed}<br>`);
+
+      // Using push and pop inside and outside of a loop
+      numbers = [];
+
+      for (j = 1; j < 6; ++j) {
+        if (j == 2 || j == 5) {
+          document.write(`Processing 'todo' #${j}<br>`);
+        } else {
+          document.write(`Puttong off 'todo' #${j} until later<br>`);
+          numbers.push(j);
+        }
+      }
+
+      document.write("<br>Finished processing the priority tasks.");
+      document.write("<br>Commencing stored tasks, most recent first.<br><br>");
+
+      document.write(`Now processing 'todo' #${numbers.pop()}<br>`);
+      document.write(`Now processing 'todo' #${numbers.pop()}<br>`);
+      document.write(`Now processing 'todo' #${numbers.pop()}<br>`);
+
+      // ## Using reverse
+      sports = ["Football", "Tennis", "Baseball", "Hockey"];
+      sports.reverse();
+      document.write(sports + "<br>");
+
+      // ## sort
+      // Alphabetical sort
+      sports = ["Football", "Tennis", "Baseball", "Hockey"];
+      sports.sort();
+      document.write(sports + "<br>");
+
+      // Reverse alphabetical sort
+      sports = ["Football", "Tennis", "Baseball", "Hockey"];
+      sports.sort().reverse();
+      document.write(sports + "<br>");
+
+      // Ascending numeric sort
+      numbers = [7, 23, 6, 74];
+      numbers.sort(function (a, b) {
+        return a - b;
+      });
+      document.write(numbers + "<br>");
+
+      // Descending numeric sort
+      numbers = [7, 23, 6, 74];
+      numbers.sort(function (a, b) {
+        return b - a;
+      });
+      document.write(numbers + "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>
