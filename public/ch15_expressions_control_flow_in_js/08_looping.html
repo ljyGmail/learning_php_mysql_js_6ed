@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Looping</title>
+    <script>
+      // # while Loops
+      counter = 0;
+      while (counter < 5) {
+        document.write(`Counter: ${counter}<br>`);
+        ++counter;
+      }
+      document.write("<br>".repeat(2));
+
+      // # do...while Loops
+      count = 1;
+
+      do {
+        document.write(`${count} times 7 is ${count * 7}<br>`);
+      } while (++count <= 7);
+      document.write("<br>".repeat(2));
+
+      // # for Loops
+      for (count = 1; count <= 7; ++count) {
+        document.write(`${count} times 7 is ${count * 7}<br>`);
+      }
+      document.write("<br>".repeat(2));
+
+      // # Breaking Out of a Loop
+      haystack = new Array();
+      haystack[17] = "Needle";
+
+      for (j = 0; j < 20; ++j) {
+        if (haystack[j] == "Needle") {
+          document.write(`<br>- Found at location ${j}`);
+          break;
+        } else document.write(`${j}, `);
+      }
+
+      document.write("<br>".repeat(2));
+
+      // # The continue Statement
+      haystack = new Array();
+      haystack[4] = "Needle";
+      haystack[11] = "Needle";
+      haystack[17] = "Needle";
+
+      for (j = 0; j < 20; ++j) {
+        if (haystack[j] == "Needle") {
+          document.write(`<br>- Found at location ${j}<br>`);
+          continue;
+        }
+
+        document.write(j + ", ");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

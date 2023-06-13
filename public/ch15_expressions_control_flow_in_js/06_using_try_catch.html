@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Using try... catch</title>
+    <script>
+      try {
+        request = new XMLHttpRequest();
+      } catch (err) {
+        // Use a different method to create an XMLHTTPRequest object
+        alert("error");
+      } finally {
+        alert("The 'try' clause was encountered");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

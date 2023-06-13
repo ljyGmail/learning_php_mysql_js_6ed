@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Conditionals</title>
+    <script>
+      // # The if Statement
+      a = 10;
+      b = 5;
+      if (a > 100) {
+        b = 2;
+        document.write("a is greater than 100");
+      }
+
+      if (b == 10) document.write("b is equal to 10");
+
+      // # The else Statement
+      if (a > 100) {
+        document.write("a is greater than 100<br>");
+      } else {
+        document.write("a is less than or equal to 100<br>");
+      }
+
+      if (a > 100) {
+        document.write("a is greater than 100<br>");
+      } else if (a < 100) {
+        document.write("a is less than 100<br>");
+      } else {
+        document.write("a is equal to 100<br>");
+      }
+
+      // # The switch Statement
+      // A multiline if...else... if... statement
+      page = "News";
+      if (page == "Home") document.write("You selected Home<br>");
+      else if (page == "About") document.write("You selected About<br>");
+      else if (page == "News") document.write("You selected News<br>");
+      else if (page == "Login") document.write("You selected Login<br>");
+      else if (page == "Links") document.write("You selected Links<br>");
+
+      // A switch construct
+      switch (page) {
+        case "Home":
+          document.write("You selected Home<br>");
+          break;
+        case "About":
+          document.write("You selected About<br>");
+          break;
+        case "News":
+          document.write("You selected News<br>");
+          break;
+        case "Login":
+          document.write("You selected Login<br>");
+          break;
+        case "Links":
+          document.write("You selected Links<br>");
+          break; // ## Breaking out
+        default: // ## Default action
+          document.write("Unrecognized selection<br>");
+          break;
+      }
+
+      // # The ? Operator
+      document.write(
+        a <= 5 ? "a is less than or equal to 5<br>" : "a is greater than 5<br>"
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
