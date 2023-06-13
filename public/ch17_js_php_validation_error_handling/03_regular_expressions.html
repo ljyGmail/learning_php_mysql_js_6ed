@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Regular Expressions</title>
+  </head>
+  <script>
+    // # Matching Through Metacharacters
+    /*
+    /Le *Guin/
+    /Le +Guin/
+    */
+
+    // # Fuzzy Character Matching
+    /*
+    /<.*>/
+    /<.+>/
+    /5\.0/
+    /5\.0* /
+    */
+
+    // # Grouping Through Parentheses
+    /*
+    1,000
+    1,000,000
+    1,000,000,000
+    1,000,000,000,000
+    ...
+
+    /1(,000)+ /
+    */
+
+    // # Character Classes
+    /*
+    /gr[ae]y/
+    */
+
+    // # Indicating a Range
+    /*
+    [0-9]
+    /\d/
+    */
+
+    // # Negation
+    /*
+    /Yahoo[^!]/
+    */
+
+    // # Some More Complicated Examples
+    /*
+    /<[^>]+>/
+    /[^a-zA-Z0-9_-]/
+    /^LE *Guin$/
+    */
+
+    // # Summary of Metacharacters
+
+    // # General Modifiers
+    /*
+        /g: global maching
+        /i: case-insensitive
+        /m: multiline mode
+    */
+
+    // # Using Regular Expression in JavaScript
+    document.write(/cats/i.test("Cats are funny. I like cats."));
+    document.write("<br>");
+    document.write("Cats are friendly. I like cats".replace(/cats/gi, "dogs"));
+
+    // # Using Regular Expression in PHP
+    /*
+    $n = preg_match("/cats/i", "Cats are crazy. I like cats"); // $n is set to 1
+    $n = preg_match("/cats/i", "Cats are crazy. I like cats", $match); // $n is set to 1
+    echo "$n Matches: $match[0]"; => 1 Matches: Cats
+
+    $n = preg_match_all("/cats/i", "Cats are crazy. I like cats", $match);
+    echo "$n Matchs: ";
+    for ($j=0; $j < $n; ++$j) echo $match[0][$j] . " ";
+
+    echo preg_replace("/cats/i", "dogs", "Cats are furry. I like cats.")
+    */
+  </script>
+  <body></body>
+</html>
