@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Using XMLHttpRequest</title>
+  </head>
+  <body style="text-align: center">
+    <a href="index.html">Index</a>
+    <h1>Loading a web page into a DIV</h1>
+    <div id="info">This sentence will be replaced</div>
+
+    <script>
+      /*
+        // Post
+      let XHR = new XMLHttpRequest();
+
+      XHR.open(
+        "POST",
+        "http://localhost/ch18_using_asynchronous_communication/02_url_serve.php",
+        true
+      );
+      XHR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      XHR.send("url=news.com");
+      XHR.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("info").innerHTML = this.responseText;
+        }
+      };
+      */
+      // Get
+      let nocache = "&nocache" + Math.random() * 1000000;
+      let XHR = new XMLHttpRequest();
+
+      XHR.open(
+        "GET",
+        "http://localhost/ch18_using_asynchronous_communication/02_url_serve.php?url=news.com" +
+          nocache
+      );
+      XHR.send();
+
+      XHR.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("info").innerHTML = this.responseText;
+        }
+      };
+    </script>
+  </body>
+</html>
