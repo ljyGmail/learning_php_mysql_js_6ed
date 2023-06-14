@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <!-- # Importing a Stylesheet -->
+    <!--
+    <style>
+      @import url("02_style.css");
+    </style>
+    -->
+    <!-- ## Importing CSS from Within HTML -->
+    <link rel="stylesheet" href="02_styles.css" />
+  </head>
+  <body>
+    <!-- ## Embedded Style Settings -->
+    <div style="font-style: italic; color: blue">Hello there</div>
+    <!-- # Using IDs -->
+    <div id="welcome">Using IDs</div>
+    <!-- # Using Classes -->
+    <div class="good">Using Classes</div>
+    <p>The type selector works on types of HTML elements such as p or i.</p>
+    <div><b>b inside div</b></div>
+    <p><b>b inside p</b></p>
+    <ul>
+      <li><b>one</b></li>
+      <li>two</li>
+      <li><b>three</b></li>
+    </ul>
+    <ol>
+      <li>One</li>
+      <li>Two</li>
+      <li>
+        Three
+        <ol>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+        </ol>
+      </li>
+    </ol>
+
+    <div id="mydiv">ID Selector</div>
+    <div class="myclass">Class Selector</div>
+    <input type="submit" value="Submit" />
+  </body>
+</html>

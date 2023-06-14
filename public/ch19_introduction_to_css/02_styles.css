@@ -1,0 +1,117 @@
+/*
+# Using Semicolons
+# CSS Rules
+## Multiple Assignments
+## Using Comments
+
+# Style Types
+## Default Styles
+## User Styles
+## External Stylesheets
+## External Styles
+## Inline Styles
+
+*/
+#welcome {
+  font-style: italic;
+  color: green;
+}
+
+.good {
+  font-style: italic;
+  color: crimson;
+}
+
+/*
+# CSS Selectors
+
+## The Type Selector
+*/
+p {
+  text-align: center;
+}
+
+/*
+## The Descendant Selector
+*/
+p b {
+  color: red;
+}
+
+ul li b {
+  color: blue;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+/*
+## The Child Selector
+*/
+ul > li {
+  font-weight: bolder;
+}
+
+/*
+## The ID Selector
+*/
+#mydiv {
+  font-style: italic;
+}
+
+/*
+## The Class Selector
+*/
+.myclass {
+  margin-left: 20px;
+}
+
+/*
+## The Attribute Selector
+*/
+[type="submit"] {
+  width: 200px;
+}
+
+/*
+## The Universal Selector
+*/
+ol * {
+  border: 1px solid green;
+}
+
+/*
+## Selecting by Group
+*/
+#mydiv,
+.myclass,
+[type="submit"] {
+  border: 2px solid purple;
+}
+
+/*
+# The CSS Cascade
+## Stylesheet Creators
+    from high to low
+    1. Those created by a document's author
+    2. Those created by the user
+    3. Those created by the browser
+
+## Stylesheet Methods
+    from high to low
+    1. As inline styles
+    2. In an embedded stylesheet
+    3. In an external stylesheet
+    
+## Stylesheet Selectors
+    from high to low
+    1. Referencing by individual ID or attribute selector
+    2. Referencing in groups by class
+    3. Referencing by element tags (such as <p> or <b>)
+
+### Calculating specificity
+### Using a different number base.
+### Some rules are more equal than others.
+p { color:#ff0000 !important; }
+*/
