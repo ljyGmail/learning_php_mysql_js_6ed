@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Box Model and Layout - Applying Borders</title>
+    <style>
+      div {
+        float: left;
+        margin-right: 20px;
+        height: 200px;
+        width: 200px;
+        padding: 10px;
+        border-style: solid;
+        border-color: blue;
+        background-color: lightgreen;
+      }
+      #one {
+        border-width: 1px;
+      }
+      #two {
+        border-width: 1px 5px;
+      }
+
+      #three {
+        border-width: 1px 5px 10px;
+      }
+
+      #four {
+        border-width: 1px 5px 10px 15px;
+      }
+
+      #five {
+        border-bottom-width: 1px;
+        border-left-width: 5px;
+        border-top-width: 10px;
+        border-right-width: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="one">border-width:<br />1px;</div>
+    <div id="two">border-width:<br />1px 5px;</div>
+    <div id="three">border-width:<br />1px 5px 10px;</div>
+    <div id="four">border-width:<br />1px 5px 10px 15px;</div>
+    <div id="five">
+      border-bottom: 1px<br />border-left: 5px;<br />border-top:10px;<br />border-right:15px
+    </div>
+  </body>
+</html>
