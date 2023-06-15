@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Waiting Until the Document is Ready</title>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $("document").ready(function () {
+        // Your code goes here
+        console.log("ready");
+      });
+
+      // a shorter version
+      $(function () {
+        console.log("shorter version ready");
+      });
+    </script>
+  </body>
+</html>
