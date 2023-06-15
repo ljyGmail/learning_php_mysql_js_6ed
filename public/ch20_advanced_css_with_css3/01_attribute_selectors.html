@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attribute Selectors</title>
+    <style>
+      /*
+        # Matching Parts of Strings
+        */
+      /*
+        ## The ^= operator
+        */
+      input[name^="java"] {
+        background-color: yellow;
+      }
+
+      /*
+        ## The $= operator
+        */
+      input[name$="hp"] {
+        background-color: aquamarine;
+      }
+
+      /*
+        ## The *= operator
+        */
+      input[name*="th"] {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" name="javascript" /><br />
+    <input type="text" name="php" /><br />
+    <input type="text" name="python" />
+  </body>
+</html>

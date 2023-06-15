@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Revisiting the getElementById Function</title>
+    <script src="02_
+   "></script>
+  </head>
+  <body>
+    <div id="myobj">Some text</div>
+
+    <div class="myclass">Div contents</div>
+    <p class="myclass">Paragraph contents</p>
+
+    <script>
+      // # The O Function
+      /*
+      function O(i) {
+        return document.getElementById(i);
+      }
+      */
+      // Object
+      function O(i) {
+        return typeof i == "object" ? i : document.getElementById(i);
+      }
+
+      // Style
+      function S(i) {
+        return O(i).style;
+      }
+
+      // Class
+      function C(i) {
+        return document.getElementsByClassName(i);
+      }
+
+      // O('myobj').style.color='green'
+      S("myobj").color = "green";
+
+      // fred=O('myobj')
+      // S(fred).color='red'
+
+      myarray = C("myclass");
+      for (i = 0; i < myarray.length; ++i)
+        S(myarray[i]).textDecoration = "underline";
+    </script>
+  </body>
+</html>
