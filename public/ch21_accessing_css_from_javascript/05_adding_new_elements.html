@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Adding New Elements</title>
+    <script src="02_OSC.js"></script>
+  </head>
+  <body>
+    This is a document with only this text in it.<br /><br />
+
+    <script>
+      alert("Click OK to add an element");
+
+      newdiv = document.createElement("div");
+      newdiv.id = "NewDiv";
+      document.body.append(newdiv);
+
+      S(newdiv).border = "solid 1px solid";
+      S(newdiv).width = "100px";
+      S(newdiv).background = "orange";
+      S(newdiv).color = "blue";
+      S(newdiv).height = "100px";
+      newdiv.innerHTML = "I'm a new object inserted in the DOM";
+
+      setTimeout(function () {
+        alert("Click OK to remove the element");
+
+        // # Removing Elements
+        newdiv.parentNode.removeChild(newdiv);
+      }, 1000);
+
+      // # Alternatives to Adding and Removing Elements
+      /*
+      myobject.visibility = 'hidden';
+      myobject.visibility = 'visible';
+
+      myobject.display = 'none';
+      myobject.display = 'block';
+
+      myelement.innerHTML = '<b>Replacement HTML</b>';
+      o('someid').innerHTML = 'New Contents';
+      o('someid').innerHTML = '';
+      */
+    </script>
+  </body>
+</html>

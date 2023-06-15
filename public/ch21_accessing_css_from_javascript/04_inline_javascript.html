@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inline JavaScript</title>
+    <script src="02_OSC.js"></script>
+  </head>
+  <body>
+    <!-- The this Keyword -->
+    <img
+      src="apple.png"
+      onmouseover="this.src='orange.png'"
+      onmouseout="this.src='apple.png'"
+    />
+    <br /><br />
+
+    <!-- Attaching Events to Objects in a Script -->
+    <img src="apple.png" id="object" />
+
+    <!-- Attaching to Other Events -->
+    <script>
+      O("object").onmouseover = function () {
+        this.src = "orange.png";
+      };
+      O("object").onmouseout = function () {
+        this.src = "apple.png";
+      };
+    </script>
+  </body>
+</html>

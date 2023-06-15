@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Using Interrupts</title>
+    <script src="02_OSC.js"></script>
+    <style>
+      #box {
+        position: absolute;
+        background: orange;
+        border: 1px solid red;
+      }
+    </style>
+    <script>
+      // # Using setTimeout
+      /*
+      setTimeout(dothis, 3000);
+      function dothis() {
+        alert("This is your wakup alert!");
+      }
+      */
+      // ## Passing a string
+      // setTimeout("alert('Hello')", 3000);
+      // setTimeout("document.write('Starting'); alert('Hello')", 3000);
+
+      // ## Repeating timeouts
+      /*
+      setTimeout(dothis, 5000);
+      function dothis() {
+        setTimeout(dothis, 5000);
+        alert("I am annoying!");
+      }
+      */
+
+      // # Canceling a Timeout
+      handle = setTimeout(dothis, 3000);
+
+      function dothis() {
+        alert("Hello");
+      }
+
+      clearTimeout(handle);
+
+      // # Using setInterval
+    </script>
+  </head>
+  <body>
+    The time is: <span id="time">00:00:00</span><br />
+    <div id="box"></div>
+
+    <script>
+      // # Using setInterval
+      handle = setInterval("showtime(O('time'))", 1000);
+
+      // ## Using the function
+      function showtime(object) {
+        var date = new Date();
+        object.innerHTML = date.toTimeString().substr(0, 8);
+      }
+
+      // ## canceling an interval
+      // handle = setInterval("showtime(O('time'))", 1000);
+      // clearInterval(handle);
+      setTimeout("clearInterval(handle)", 10000);
+
+      // # Using Interrupts for Animation
+      SIZE = LEFT = 0;
+      setInterval(animate, 1000);
+
+      function animate() {
+        SIZE += 10;
+        LEFT += 3;
+        if (SIZE == 200) SIZE = 0;
+        if (LEFT == 600) LEFT = 0;
+
+        S("box").width = SIZE + "px";
+        S("box").height = SIZE + "px";
+        S("box").left = LEFT + "px";
+      }
+    </script>
+  </body>
+</html>
