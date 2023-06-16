@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Using Asynchronous Communication</title>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <h1>Loading a web page into a DIV</h1>
+    <div id="info">This sentence will be replaced</div>
+
+    <script>
+      /*
+      $.post(
+        "http://localhost/ch18_using_asynchronous_communication/02_url_serve.php",
+        { url: "amazon.com/gp/aw" },
+        function (data) {
+          console.log(data);
+          $("#info").html(data);
+        }
+      );
+      */
+      $.get(
+        "http://localhost/ch18_using_asynchronous_communication/02_url_serve.php?url=amazon.com/gp/aw",
+        function (data) {
+          $("#info").html(data);
+        }
+      );
+    </script>
+  </body>
+</html>

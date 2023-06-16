@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamically Applying Classes</title>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      .active {
+        border: 2px dotted orange;
+        font-size: 2em;
+        background-color: cadetblue;
+      }
+
+      .fix {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">Dynamically Applying Classes</div>
+    <button id="add">Add Class</button>
+    <button id="remove">Remove Class</button>
+    <button id="toggle">Toggle Class</button>
+    <script>
+      $("#add").click(function () {
+        // $("#content").addClass("active");
+        // Add more than one class
+        $("#content").addClass("active fix");
+      });
+
+      $("#remove").click(function () {
+        $("#content").removeClass("active");
+      });
+
+      $("#toggle").click(function () {
+        $("#content").toggleClass("active");
+      });
+    </script>
+  </body>
+</html>

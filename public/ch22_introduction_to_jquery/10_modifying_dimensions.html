@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modifying Dimensions</title>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <p>
+      <button id="getdoc">Get document width</button>
+      <button id="getwin">Get window width</button>
+      <button id="getdiv">Get div width</button>
+      <button id="setdiv">Set div width to 150 pixels</button>
+    </p>
+    <div id="result" style="width: 300px; height: 50px; background: #def"></div>
+    <script>
+      // # The width and height Methods
+      $("#getdoc").click(function () {
+        $("#result").html("Document width: " + $(document).width());
+      });
+
+      $("#getwin").click(function () {
+        $("#result").html("Window width: " + $(window).width());
+      });
+
+      $("#getdiv").click(function () {
+        $("#result").html("Div width: " + $("#result").width());
+      });
+
+      $("#setdiv").click(function () {
+        $("#result").width(150);
+        $("#result").html("Div width: " + $("#result").width());
+      });
+
+      // # The innerWidth and innerHeight Methods
+      // including the padding but not including any border
+      // iwidth = $('#elem').innerWidth();
+
+      // # The outerWidth and outerHeight Methods
+      // including padding and border
+      // owidth = $('#elem').outerWidth();
+
+      // including any margin
+      // owidth = $('#elem').outerWidth(true);
+    </script>
+  </body>
+</html>
