@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Handling</title>
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        <h1>jQuery Lists</h1>
+      </div>
+      <div data-role="content">
+        <ul data-role="listview">
+          <li>An</li>
+          <li>Unordered</li>
+          <li>List</li>
+        </ul>
+        <br /><br />
+        <ol data-role="listview">
+          <li>An</li>
+          <li>Ordered</li>
+          <li>List</li>
+        </ol>
+        <br />
+        <ul data-role="listview" data-inset="true">
+          <li>An</li>
+          <li>Inset Unordered</li>
+          <li>List</li>
+        </ul>
+        <ul data-role="listview" data-inset="true">
+          <li><a href="#">An</a></li>
+          <li><a href="#">Inset Unordered</a></li>
+          <li><a href="#">Linked List</a></li>
+        </ul>
+
+        <!-- Filterable Lists -->
+        <ul
+          data-role="listview"
+          data-filter="true"
+          data-filter-placeholder="Search big cats..."
+          data-inset="true"
+        >
+          <li>Cheetah</li>
+          <li>Cougar</li>
+          <li>Jaguar</li>
+          <li>Leopard</li>
+          <li>Lion</li>
+          <li>Snow Leopard</li>
+          <li>Tiger</li>
+        </ul>
+
+        <ul
+          data-role="listview"
+          data-filter="true"
+          data-filter-reveal="true"
+          data-filter-placeholder="Search big cats..."
+          data-inset="true"
+        >
+          <li>Cheetah</li>
+          <li>Cougar</li>
+          <li>Jaguar</li>
+          <li>Leopard</li>
+          <li>Lion</li>
+          <li>Snow Leopard</li>
+          <li>Tiger</li>
+        </ul>
+
+        <!-- List Dividers -->
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider">Big Cats</li>
+          <li>Cheetah</li>
+          <li>Cougar</li>
+          <li>Jaguar</li>
+          <li>Leopard</li>
+          <li>Lion</li>
+          <li>Snow Leopard</li>
+          <li data-role="list-divider">Big Dogs</li>
+          <li>Bloodhound</li>
+          <li>Doberman Pinscher</li>
+          <li>Great Dane</li>
+          <li>Mastiff</li>
+          <li>Rottweiler</li>
+        </ul>
+
+        <ul data-role="listview" data-inset="true" data-autodividers="true">
+          <li>Cheetah</li>
+          <li>Cougar</li>
+          <li>Jaguar</li>
+          <li>Leopard</li>
+          <li>Lion</li>
+          <li>Snow Leopard</li>
+          <li>Tiger</li>
+          <li data-icon="gear"><a href="settings.html">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
