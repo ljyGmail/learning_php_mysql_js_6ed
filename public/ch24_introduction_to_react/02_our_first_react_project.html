@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our First React Project</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+      class One extends React.Component {
+        render() {
+          return <p>By Jeeves, it works!</p>;
+        }
+      }
+
+      ReactDOM.render(<One />, document.getElementById("div1"));
+      */
+
+      // # Ussing a Function Instead of a Class
+      /*
+      function Two() {
+        return <p>And this, by Jove!</p>;
+      }
+
+      ReactDOM.render(<Two />, document.getElementById("div2"));
+      */
+
+      // # Pure and Impure Code: A Golden Rule
+      // Pure function does not change its inputs
+      function mult(m1, m2) {
+        return m1 * m2;
+      }
+
+      // Impure function
+      function assign(obj, val) {
+        obj.value = val;
+      }
+
+      // # Using Both a Class and a Function
+      class One extends React.Component {
+        render() {
+          return <p>By Jeeves, it works!</p>;
+        }
+      }
+
+      function Two() {
+        return <p>And this, by Jove!</p>;
+      }
+
+      doRender(<One />, "div1");
+      doRender(<Two />, "div2");
+
+      function doRender(elem, dest) {
+        ReactDOM.render(elem, document.getElementById(dest));
+      }
+
+      function Welcome(props) {
+        return <h1>Hello, {props.name}</h1>;
+      }
+
+      doRender(<Welcome name="Robin" />, "hello");
+
+      // # The Differences Between Using a Class and a Function
+    </script>
+  </head>
+  <body>
+    <div id="div1" style="font-family: monospace"></div>
+    <div id="div2" style="font-family: monospace"></div>
+
+    <div id="hello" style="font-family: monospace"></div>
+  </body>
+</html>
