@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating and Accessing a Canvas</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <h2>Canvas Basic, toDataURL function</h2>
+    <canvas id="mycanvas" width="320" height="240">
+      This is a canvas element given the ID <i>mycanvas</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
+
+    <image id="myimage">
+
+    <h2>fillRect, clearRect, strokeRect</h2>
+    <canvas id="mycanvas2" width="640" height="240">
+      This is a canvas element given the ID <i>mycanvas</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
+
+    <script>
+      canvas = O("mycanvas");
+      context = canvas.getContext("2d");
+      context.fillStyle = "red";
+      S(canvas).border = "1px solid black";
+
+      context.beginPath();
+      context.moveTo(160, 120);
+      context.arc(160, 120, 70, 0, Math.PI * 2, false);
+      context.closePath();
+      context.fill();
+
+      // # The toDataURL Function
+      S('myimage').border = '1px solid green';
+      // O('myimage').src = canvas.toDataURL();
+
+      O('myimage').src = canvas.toDataURL('image/jpeg', 0.4);
+
+      // Combining These Commands
+      canvas = O('mycanvas2');
+      context = canvas.getContext('2d');
+      S(canvas).background = 'lightblue';
+      context.fillStyle = 'blue';
+      context.strokeStyle = 'green';
+
+      // # The fillRect Method
+      context.fillRect(20, 20, 600, 200);
+      // # The clearRect Method
+      context.clearRect(40, 40, 560, 160);
+      // # The strokeRect Method
+      context.strokeRect(60, 60, 520, 120);
+    </script>
+  </body>
+</html>
