@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using Lists and Keys</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      var uniqueId = 0;
+      const cats = ["lion", "tiger", "cheetah", "lynx"];
+      const listOfCats = cats.map((cat) => (
+        // # Unique Keys
+        <li key={uniqueId++}>{uniqueId - 1 + " " + cat}</li>
+      ));
+
+      doRender(<ul>{listOfCats}</ul>, "display");
+
+      function doRender(elem, dest) {
+        ReactDOM.render(elem, document.getElementById(dest));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="display" style="font-family: monospace"></div>
+  </body>
+</html>
