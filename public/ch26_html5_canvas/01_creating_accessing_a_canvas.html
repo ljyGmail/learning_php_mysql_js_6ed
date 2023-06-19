@@ -13,14 +13,41 @@
       This text is only visible in non-HTML5 browsers
     </canvas>
 
-    <image id="myimage">
+    <image id="myimage" />
 
     <h2>fillRect, clearRect, strokeRect</h2>
     <canvas id="mycanvas2" width="640" height="240">
-      This is a canvas element given the ID <i>mycanvas</i>
+      This is a canvas element given the ID <i>mycanvas2</i>
       This text is only visible in non-HTML5 browsers
     </canvas>
+    <br /><br />
 
+    <h2>The createLinearGradient Method</h2>
+    <canvas id="linearGradient" width="640" height="240">
+      This is a canvas element given the ID <i>linearGradient</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
+    <br /><br />
+
+    <h2>The addColorStop Method in Detail</h2>
+    <canvas id="addColorStop" width="640" height="240">
+      This is a canvas element given the ID <i>addColorStop</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
+    <br /><br />
+
+    <h2>The createRadialGradient Method</h2>
+    <canvas id="createRadialGradient" width="640" height="240">
+      This is a canvas element given the ID <i>createRadialGradient</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
+    <br /><br />
+
+    <h2>Using Patterns for Fills</h2>
+    <canvas id="usingPatternsForFills" width="640" height="240">
+      This is a canvas element given the ID <i>usingPatternsForFills</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
     <script>
       canvas = O("mycanvas");
       context = canvas.getContext("2d");
@@ -34,17 +61,17 @@
       context.fill();
 
       // # The toDataURL Function
-      S('myimage').border = '1px solid green';
+      S("myimage").border = "1px solid green";
       // O('myimage').src = canvas.toDataURL();
 
-      O('myimage').src = canvas.toDataURL('image/jpeg', 0.4);
+      O("myimage").src = canvas.toDataURL("image/jpeg", 0.4);
 
       // Combining These Commands
-      canvas = O('mycanvas2');
-      context = canvas.getContext('2d');
-      S(canvas).background = 'lightblue';
-      context.fillStyle = 'blue';
-      context.strokeStyle = 'green';
+      canvas = O("mycanvas2");
+      context = canvas.getContext("2d");
+      S(canvas).background = "lightblue";
+      context.fillStyle = "blue";
+      context.strokeStyle = "green";
 
       // # The fillRect Method
       context.fillRect(20, 20, 600, 200);
@@ -52,6 +79,93 @@
       context.clearRect(40, 40, 560, 160);
       // # The strokeRect Method
       context.strokeRect(60, 60, 520, 120);
+
+      // # The createLinearGradient Method
+      gradient = context.createLinearGradient(0, 80, 640, 80);
+      gradient.addColorStop(0, "white");
+      gradient.addColorStop(1, "black");
+      context.fillStyle = gradient;
+      context.fillRect(80, 80, 480, 80);
+
+      canvas = O("linearGradient");
+      context = canvas.getContext("2d");
+      S(canvas).border = "1px solid black";
+
+      gradient = context.createLinearGradient(0, 0, 160, 0);
+      gradient.addColorStop(0, "white");
+      gradient.addColorStop(1, "black");
+      context.fillStyle = gradient;
+      context.fillRect(20, 20, 135, 200);
+
+      gradient = context.createLinearGradient(0, 0, 0, 240);
+      gradient.addColorStop(0, "yellow");
+      gradient.addColorStop(1, "red");
+      context.fillStyle = gradient;
+      context.fillRect(175, 20, 135, 200);
+
+      gradient = context.createLinearGradient(320, 0, 480, 240);
+      gradient.addColorStop(0, "green");
+      gradient.addColorStop(1, "purple");
+      context.fillStyle = gradient;
+      context.fillRect(330, 20, 135, 200);
+
+      gradient = context.createLinearGradient(480, 240, 640, 0);
+      gradient.addColorStop(0, "orange");
+      gradient.addColorStop(1, "magenta");
+      context.fillStyle = gradient;
+      context.fillRect(485, 20, 135, 200);
+
+      // # The addColorStop Method in Detail
+      canvas = O("addColorStop");
+      context = canvas.getContext("2d");
+      S(canvas).border = "1px solid black";
+      S(canvas).background = "lightblue";
+
+      gradient = context.createLinearGradient(0, 0, 640, 0);
+      gradient.addColorStop(0.0, "red");
+      gradient.addColorStop(0.14, "orange");
+      gradient.addColorStop(0.28, "yellow");
+      gradient.addColorStop(0.42, "green");
+      gradient.addColorStop(0.56, "blue");
+      gradient.addColorStop(0.7, "indigo");
+      gradient.addColorStop(0.84, "violet");
+
+      context.fillStyle = gradient;
+      context.fillRect(40, 40, 560, 160);
+
+      // # The createRadialGradient Method
+      canvas = O("createRadialGradient");
+      context = canvas.getContext("2d");
+      S(canvas).border = "1px solid black";
+      S(canvas).background = "lightblue";
+
+      // gradient = context.createRadialGradient(320, 120, 0, 320, 120, 320);
+      gradient = context.createRadialGradient(0, 120, 0, 480, 120, 480);
+      gradient.addColorStop(0.0, "red");
+      gradient.addColorStop(0.14, "orange");
+      gradient.addColorStop(0.28, "yellow");
+      gradient.addColorStop(0.42, "green");
+      gradient.addColorStop(0.56, "blue");
+      gradient.addColorStop(0.7, "indigo");
+      gradient.addColorStop(0.84, "violet");
+
+      context.fillStyle = gradient;
+      context.fillRect(40, 40, 560, 160);
+
+      // # Using Patterns for Fills
+      canvas = O("usingPatternsForFills");
+      context = canvas.getContext("2d");
+      S(canvas).border = "1px solid black";
+      S(canvas).background = "lightblue";
+
+      image = new Image();
+      image.src = "image.png";
+
+      image.onload = function () {
+        pattern = context.createPattern(image, "repeat");
+        context.fillStyle = pattern;
+        context.fillRect(20, 20, 600, 200);
+      };
     </script>
   </body>
 </html>

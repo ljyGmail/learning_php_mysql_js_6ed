@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writing Text to the Canvas</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <h1>Writing Text to the Canvas</h1>
+    <canvas id="writingText" width="800" height="140">
+      This is a canvas element given the ID <i>writingText</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
+    <br /><br />
+
+    <h2>The fillText Method</h2>
+    <canvas id="fillText" width="800" height="140">
+      This is a canvas element given the ID <i>fillText</i>
+      This text is only visible in non-HTML5 browsers
+    </canvas>
+
+    <script>
+      canvas = O("writingText");
+      context = canvas.getContext("2d");
+      S(canvas).border = "1px solid black";
+      S(canvas).background = "lightblue";
+
+      // # The font Property
+      context.font = "bold 140px Times";
+      // # The textBaseline Property
+      context.textBaseline = "top";
+      // context.textBaseline = "middle";
+      // context.textBaseline = "alphabetic";
+      // context.textBaseline = "bottom";
+
+      // The textAlign Property
+      context.textAlign = "start";
+      // context.textAlign = "end";
+      // context.textAlign = "left";
+      // context.textAlign = "right";
+      // context.textAlign = "center";
+
+      context.strokeText("WickerpediA", 0, 0);
+
+      // # The fillText Method
+      canvas = O("fillText");
+      context = canvas.getContext("2d");
+      S(canvas).border = "1px solid black";
+      S(canvas).background = "lightblue";
+
+      context.textBaseline = "top";
+      context.font = "bold 140px Times";
+
+      image = new Image();
+      image.src = "wicker.jpg";
+
+      image.onload = function () {
+        pattern = context.createPattern(image, "repeat");
+        context.fillStyle = pattern;
+        context.fillText("WickerpediA", 0, 0);
+        context.strokeText("WickerpediA", 0, 0);
+      };
+
+      // # The measure Text Method
+      metrics = context.measureText("WickerpediA");
+      width = metrics.width;
+      console.log(`width: ${width}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working with Curves</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <h1>Working with Curves</h1>
+    <h2>The arc Method</h2>
+    <canvas id="mycanvas" width="640" height="480"></canvas>
+    <br /><br />
+
+    <h2>The arcTo Method</h2>
+    <canvas id="arcTo" width="480" height="240"></canvas>
+    <br /><br />
+
+    <h2>The quadraticCurveTo Method</h2>
+    <canvas id="quadraticCurveTo" width="480" height="240"></canvas>
+    <br /><br />
+
+    <h2>The bezierCurveTo Method</h2>
+    <canvas id="bezierCurveTo" width="480" height="240"></canvas>
+
+    <script>
+      canvas = O("mycanvas");
+      context = canvas.getContext("2d");
+      S(canvas).background = "lightblue";
+
+      context.strokeStyle = "blue";
+
+      Math.degreesToRadians = function (degrees) {
+        return (degrees * Math.PI) / 180;
+      };
+
+      // arcs = [Math.PI, Math.PI * 2, Math.PI / 2, (Math.PI / 180) * 59];
+
+      // The code below uses degrees as argument
+      arcs = [
+        Math.degreesToRadians(180),
+        Math.degreesToRadians(360),
+        Math.degreesToRadians(90),
+        Math.degreesToRadians(59),
+      ];
+
+      for (j = 0; j < 4; ++j) {
+        context.beginPath();
+        context.arc(80 + j * 160, 80, 70, 0, arcs[j]);
+        context.closePath();
+        context.stroke();
+      }
+
+      context.strokeStyle = "red";
+
+      for (j = 0; j < 4; ++j) {
+        context.beginPath();
+        context.arc(80 + j * 160, 240, 70, 0, arcs[j]);
+        context.stroke();
+        context.closePath();
+      }
+
+      context.strokeStyle = "green";
+
+      for (j = 0; j < 4; j++) {
+        context.beginPath();
+        context.arc(80 + j * 160, 400, 70, 0, arcs[j], true);
+        context.stroke();
+        context.closePath();
+      }
+
+      canvas = O("arcTo");
+      context = canvas.getContext("2d");
+      S(canvas).background = "lightblue";
+      context.strokeStyle = "blue";
+
+      for (j = 0; j < 280; j += 40) {
+        context.beginPath();
+        context.moveTo(20, 20);
+        context.arcTo(240, 240, 460, 20, j);
+        context.lineTo(460, 20);
+        context.stroke();
+        context.closePath();
+      }
+
+      // # The quadraticCurveTo Method
+      canvas = O("quadraticCurveTo");
+      context = canvas.getContext("2d");
+      S(canvas).background = "lightblue";
+
+      context.beginPath();
+      context.moveTo(180, 60);
+      context.quadraticCurveTo(240, 0, 300, 60);
+      context.quadraticCurveTo(460, 30, 420, 100);
+      context.quadraticCurveTo(480, 210, 340, 170);
+      context.quadraticCurveTo(240, 240, 200, 170);
+      context.quadraticCurveTo(100, 200, 140, 130);
+      context.quadraticCurveTo(40, 40, 180, 60);
+      context.fillStyle = "white";
+      context.fill();
+      context.closePath();
+
+      context.beginPath();
+      context.moveTo(240, 0);
+      context.lineTo(460, 30);
+      context.lineTo(480, 210);
+      context.lineTo(240, 240);
+      context.lineTo(100, 200);
+      context.lineTo(40, 40);
+      context.closePath();
+      context.setLineDash([2, 3]);
+      context.strokeStyle = "green";
+      context.stroke();
+
+      // # The bezierCurveTo Method
+      canvas = O("bezierCurveTo");
+      context = canvas.getContext("2d");
+      S(canvas).background = "lightblue";
+
+      context.beginPath();
+      context.moveTo(240, 20);
+      context.bezierCurveTo(720, 480, -240, -240, 240, 220);
+      context.stroke();
+      context.closePath();
+    </script>
+  </body>
+</html>
