@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editing at the Pixel Level</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <h1>Editing at the Pixel Level</h1>
+    <canvas id="mycanvas" width="640" height="200"></canvas>
+
+    <script>
+      canvas = O("mycanvas");
+      context = canvas.getContext("2d");
+      S(canvas).background = "lightblue";
+
+      myimage = new Image();
+      myimage.src = "photo.jpg";
+      myimage.crossOrigin = "";
+
+      myimage.onload = function () {
+        context.drawImage(myimage, 0, 0);
+
+        console.log(myimage.width, myimage.height);
+
+        // # THe getImageData Method
+        idata = context.getImageData(0, 0, myimage.width, myimage.height);
+
+        console.log(idata);
+
+        for (y = 0; y < myimage.height; ++y) {
+          for (x = 0; x < myimage.width; ++x) {
+            pos = y * myimage.width * 4 + x * 4;
+            // ## The data array
+            average =
+              (idata.data[pos] + idata.data[pos + 1] + idata.data[pos + 2]) / 3;
+
+            idata.data[pos] = average + 50;
+            idata.data[pos + 1] = average;
+            idata.data[pos + 2] = average - 50;
+          }
+        }
+        // # The putImageData Method
+        context.putImageData(idata, 320, 0);
+      };
+    </script>
+  </body>
+</html>

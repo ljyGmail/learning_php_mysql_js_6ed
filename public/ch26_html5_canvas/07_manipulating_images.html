@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulating Images</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <h1>Manipulating Images</h1>
+    <h2>Drawing Images</h2>
+    <canvas id="drawingImages" width="480" height="260"></canvas>
+
+    <h2>Adding Shadows</h2>
+    <canvas id="addingShadows" width="480" height="190"></canvas>
+
+    <script>
+      canvas = O("drawingImages");
+      context = canvas.getContext("2d");
+      S(canvas).background = "lightblue";
+
+      myimage = new Image();
+      myimage.src = "image.png";
+
+      myimage.onload = function () {
+        // # The drawImage Method
+        context.drawImage(myimage, 20, 20);
+        // # Resizing an Image
+        context.drawImage(myimage, 140, 20, 220, 220);
+        context.drawImage(myimage, 380, 20, 80, 220);
+        // # Selecting an Image Area
+        context.drawImage(myimage, 30, 30, 40, 40, 20, 140, 100, 100);
+
+        // # Copying from a Canvas
+        context.drawImage(canvas, 0, 0, 480, 260, 20, 140, 100, 100);
+      };
+
+      // # Adding Shadows
+      canvas2 = O("addingShadows");
+      context2 = canvas2.getContext("2d");
+      S(canvas2).background = "lightblue";
+
+      appleImg = new Image();
+      appleImg.src = "apple.png";
+
+      orig = 95;
+      points = 21;
+      dist = (Math.PI / points) * 2;
+      scale1 = 75;
+      scale2 = 50;
+
+      appleImg.onload = function () {
+        context2.beginPath();
+
+        for (j = 0; j < points; ++j) {
+          x = Math.sin(j * dist);
+          y = Math.cos(j * dist);
+          context2.lineTo(orig + x * scale1, orig + y * scale1);
+          context2.lineTo(orig + x * scale2, orig + y * scale2);
+        }
+        context2.closePath();
+
+        context2.shadowOffsetX = 5;
+        context2.shadowOffsetY = 5;
+        context2.shadowBlur = 6;
+        context2.shadowColor = "#444";
+        context2.fillStyle = "red";
+        context2.stroke();
+        context2.fill();
+
+        context2.shadowOffsetX = 2;
+        context2.shadowOffsetY = 2;
+        context2.shadowBlur = 3;
+        context2.shadowColor = "yellow";
+        context2.font = "bold 36pt Times";
+        context2.textBaseline = "top";
+        context2.fillStyle = "green";
+        context2.fillText("Sale now on!", 200, 5);
+
+        context2.shadowOffsetX = 3;
+        context2.shadowOffsetY = 3;
+        context2.shadowBlur = 5;
+        context2.shadowColor = "black";
+        context2.drawImage(appleImg, 245, 45);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transformation</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <h1>Transformation</h1>
+    <h2>The scale Method</h2>
+    <canvas id="scale" width="420" height="200"></canvas>
+
+    <h2>The rotate Method</h2>
+    <canvas id="rotate" width="500" height="280"></canvas>
+
+    <h2>The translate Method</h2>
+    <canvas id="translate" width="500" height="140"></canvas>
+
+    <h2>The transform Method</h2>
+    <canvas id="transform" width="500" height="140"></canvas>
+    <script>
+      // # The scale Method
+      canvasScale = O("scale");
+      contextScale = canvasScale.getContext("2d");
+      S(canvasScale).background = "lightblue";
+
+      myimageScale = new Image();
+      myimageScale.src = "image.png";
+
+      myimageScale.onload = function () {
+        // contextScale.drawImage(myimage, 0, 0);
+        // contextScale.scale(3, 2);
+
+        // Alternative to above using transform()
+        // contextScale.transform(3, 0, 0, 2, 0, 0);
+
+        // contextScale.drawImage(myimage, 40, 0);
+        // contextScale.scale(0.33, 0.5);
+        // contextScale.drawImage(myimage, 0, 100);
+
+        // The save and restore Methods
+        // Improved version using save() and restore
+        contextScale.drawImage(myimageScale, 0, 0);
+        contextScale.save();
+        contextScale.scale(3, 2);
+        contextScale.drawImage(myimageScale, 40, 0);
+        contextScale.restore();
+        contextScale.drawImage(myimageScale, 0, 100);
+      };
+
+      // # The rotate Method
+      canvasRotate = O("rotate");
+      contextRotate = canvasRotate.getContext("2d");
+      S(canvasRotate).background = "lightblue";
+
+      imageRotate = new Image();
+      imageRotate.src = "image.png";
+
+      imageRotate.onload = function () {
+        for (j = 0; j < 4; ++j) {
+          contextRotate.drawImage(imageRotate, 20 + j * 120, 20);
+          contextRotate.rotate(Math.PI / 25);
+        }
+      };
+
+      // # The translate Method
+      canvasTranslate = O("translate");
+      contextTranslate = canvasTranslate.getContext("2d");
+      S(canvasTranslate).background = "lightblue";
+
+      imageTranslate = new Image();
+      imageTranslate.src = "image.png";
+
+      imageTranslate.onload = function () {
+        w = imageTranslate.width;
+        h = imageTranslate.height;
+
+        for (j = 0; j < 4; ++j) {
+          contextTranslate.save();
+          contextTranslate.translate(20 + w / 2 + j * (w + 20), 20 + h / 2);
+
+          contextTranslate.rotate((Math.PI / 5) * j);
+          contextTranslate.drawImage(imageTranslate, -(w / 2), -(h / 2));
+          contextTranslate.restore();
+        }
+      };
+
+      // # The transform Method
+      canvasTransform = O("transform");
+      contextTransform = canvasTransform.getContext("2d");
+      S(canvasTransform).background = "lightblue";
+
+      imageTransform = new Image();
+      imageTransform.src = "image.png";
+
+      imageTransform.onload = function () {
+        contextTransform.drawImage(imageTransform, 20, 20);
+        //contextTransform.transform(1, 0, 1, 1, 0, 0);
+        // ## The setTransform Method
+        // contextTransform.setTransform(1, 0, 1, 1, 0, 0);
+        contextTransform.drawImage(imageTransform, 140, 20);
+      };
+    </script>
+  </body>
+</html>
