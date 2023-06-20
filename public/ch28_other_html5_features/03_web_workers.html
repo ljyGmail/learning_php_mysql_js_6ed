@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Workers</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    Current highest prime number:
+    <span id="result">0</span>
+
+    <script>
+      if (!!window.Worker) {
+        var worker = new Worker("04_worker.js");
+
+        worker.onmessage = function (event) {
+          O("result").innerText = event.data;
+        };
+      } else {
+        alert("Web workers not supported");
+      }
+    </script>
+  </body>
+</html>
