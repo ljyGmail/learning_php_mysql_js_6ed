@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The &lt;audio&gt; Element</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <audio controls>
+      <source src="audio.m4a" type="audio/aac" />
+      <source src="audio.mp3" type="audio/mp3" />
+      <source src="audio.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="myaudio">
+      <source src="audio.m4a" type="audio/aac" />
+      <source src="audio.mp3" type="audio/mp3" />
+      <source src="audio.ogg" type="audio/ogg" />
+    </audio>
+
+    <button onclick="playaudio()">Play Audio</button>
+    <button onclick="pauseauido()">Pause Audio</button>
+
+    <script>
+      function playaudio() {
+        O("myaudio").play();
+      }
+
+      function pauseaudio() {
+        O("myaudio").pause();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The &lt;video&gt; Element</title>
+    <script src="../ch25_introduction_to_html5/OSC.js"></script>
+  </head>
+  <body>
+    <video width="560" height="320" controls>
+      <source src="movie.mp4" type="video/mp4" />
+      <source src="movie.webm" type="video/webm" />
+      <source src="movie.ogv" type="video/ogg" />
+    </video>
+    <br /><br />
+    <video id="myvideo" width="560" height="320">
+      <source src="movie.mp4" type="video/mp4" />
+      <source src="movie.webm" type="video/webm" />
+      <source src="movie.ogv" type="video/ogg" />
+    </video>
+    <br />
+    <button onclick="playvideo()">Play Video</button>
+    <button onclick="pausevideo()">Pause Video</button>
+
+    <script>
+      function playvideo() {
+        O("myvideo").play();
+      }
+
+      function pausevideo() {
+        O("myvideo").pause();
+      }
+    </script>
+  </body>
+</html>
